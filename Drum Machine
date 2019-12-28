@@ -1,0 +1,88 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@dharmabumzee 
+Learn Git and GitHub without any code!
+Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
+
+
+1
+00dharmabumzee/JSDrumMachine
+ Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights Settings
+JSDrumMachine/index.html
+@dharmabumzee dharmabumzee add index.html without samples
+9fcbf44 24 days ago
+58 lines (53 sloc)  1.6 KB
+  
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS Drum Kit</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="keys">
+      <div data-key="87" class="key">
+        <kbd>W</kbd>
+        <span class="sound">kick</span>
+      </div>
+      <div data-key="74" class="key">
+        <kbd>J</kbd>
+        <span class="sound">hihat</span>
+      </div>
+      <div data-key="70" class="key">
+        <kbd>F</kbd>
+        <span class="sound">snare</span>
+      </div>
+      <div data-key="72" class="key">
+        <kbd>H</kbd>
+        <span class="sound">openhat</span>
+      </div>
+     // ...
+    </div>
+
+    <audio data-key="87" src="//some_kick_sample"></audio>
+    <audio data-key="74" src="//some_hihat_sample"></audio>
+    <audio data-key="70" src="//some_snare_sample"></audio>
+    <audio data-key="72" src="//some_open_hh_sample"></audio>
+   //...
+
+    <script>
+      function playSound(e) {
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+        if (!audio) return;
+        key.classList.add("playing");
+        audio.currentTime = 0;
+        audio.play();
+      }
+      function removeTransition(e) {
+        if (e.propertyName !== "transform") return;
+        e.target.classList.remove("playing");
+      }
+      const keys = Array.from(document.querySelectorAll(".key"));
+      keys.forEach(key =>
+        key.addEventListener("transitionend", removeTransition)
+      );
+      window.addEventListener("keydown", playSound);
+    </script>
+  </body>
+</html>
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
