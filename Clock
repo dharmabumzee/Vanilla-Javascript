@@ -39,7 +39,7 @@
         margin: 50px auto;
         position: relative;
         padding: 2rem;
-        box-shadow: 0 0 0 4px #cab7a7, inset 0 0 0 3px #ddd1c7,
+        box-shadow: 0 0 0 4px #ddd1c7, inset 0 0 0 3px #cab7a7,
           inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
       }
 
