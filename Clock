@@ -62,10 +62,14 @@
         transform: rotate(90deg);
         transition: all 0.05s;
         transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+        border-radius: 42.5%;
       }
 
       .second-hand {
         height: 4px;
+        margin-top: 0.5%;
+        margin-left: 0.5%;
+        opacity: 0.5;
       }
 
       .minute-hand {
